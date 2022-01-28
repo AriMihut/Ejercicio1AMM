@@ -1,5 +1,5 @@
 import os
-
+import shutil
 
 def elegir_opcion_menu():
     print('''
@@ -27,7 +27,10 @@ def leer_ruta():
 
 def mostrar_contenido_fichero(ruta):
     print(f'La ruta es {ruta}')
-
+    with open("C:/Phyton/fichero1.txt", "r") as archivo:
+        for linea in archivo:
+            print(linea)
+#
 
 def pedir_ruta_fichero_destino():
     print('Introduzca la ruta def fichero de destino: ')
@@ -49,7 +52,11 @@ if __name__ == '__main__':
             ruta = leer_ruta()
             pedir_ruta_fichero_destino()
             ruta_destino = leer_ruta()
-
+            shutil.copy2(ruta, ruta_destino)
+            if os.path.isfile(ruta):
+                mostrar_contenido_fichero(ruta)
+            else:
+                print('La ruta de destino no es un fichero')
 
 
             
