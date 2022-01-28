@@ -36,6 +36,16 @@ def pedir_ruta_fichero_destino():
     print('Introduzca la ruta def fichero de destino: ')
 
 #jgj
+def pedir_ruta_directorio():
+    print('Introduzca la ruta del directorio: ')
+
+
+def mostrar_ficheros_directorio(ruta_directorio):
+    contenido_directorio = '/Phyton/'
+    with os.scandir(contenido_directorio) as ficheros:
+        for fichero in ficheros:
+            print(fichero.name)
+
 if __name__ == '__main__':
     while True:
         elegir_opcion_menu()
@@ -57,6 +67,15 @@ if __name__ == '__main__':
                 mostrar_contenido_fichero(ruta)
             else:
                 print('La ruta de destino no es un fichero')
-
+        elif opcion_menu == 3:
+           pedir_ruta_directorio()
+           ruta_directorio = leer_ruta()
+           if os.path.isdir(ruta_directorio):
+               mostrar_ficheros_directorio(ruta_directorio)
+           else:
+               print('La ruta no es un directorio')
+        else:
+            opcion_menu == 0
+            exit(0)
 
             
