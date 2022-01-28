@@ -3,12 +3,11 @@ import shutil
 
 def elegir_opcion_menu():
     print('''
-        FICHEROS
-        1. Leer fichero de texto
-        2. Copiar fichero
-        3. Listar archivos de directorio
-        0. Salir''')
-
+FICHEROS
+1. Leer fichero de texto
+2. Copiar fichero
+3. Listar archivos de directorio
+0. Salir''')
 
 def leer_entero(texto):
     try:
@@ -44,7 +43,19 @@ def mostrar_ficheros_directorio(ruta_directorio):
     contenido_directorio = '/Phyton/'
     with os.scandir(contenido_directorio) as ficheros:
         for fichero in ficheros:
-            print(fichero.name)
+
+            def get_size(start_path='.'):
+                total_size = 0
+                for dirpath, dirnames, filenames in os.walk(start_path):
+                    for f in filenames:
+                        fp = os.path.join(dirpath, f)
+                        # skip if it is symbolic link
+                        if not os.path.islink(fp):
+                            total_size += os.path.getsize(fp)
+
+                return total_size
+
+            print(fichero.name, get_size(), 'bytes')
 
 if __name__ == '__main__':
     while True:
