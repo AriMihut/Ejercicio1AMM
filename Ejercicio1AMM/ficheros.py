@@ -29,7 +29,7 @@ def mostrar_contenido_fichero():
 def pedir_ruta_fichero_destino():
     print('Introduzca la ruta def fichero de destino: ')
 
-
+#jgj
 if __name__ == '__main__':
     while True:
         elegir_opcion_menu()
