@@ -1,3 +1,6 @@
+import os
+
+
 def elegir_opcion_menu():
     print('''
         FICHEROS
@@ -37,14 +40,16 @@ if __name__ == '__main__':
         if opcion_menu == 1:
             pedir_ruta_fichero()
             ruta = leer_ruta()
-            mostrar_contenido_fichero(ruta)
+            if os.path.isfile(ruta):
+                mostrar_contenido_fichero(ruta)
+            else:
+                print('La ruta no es un fichero')
         elif opcion_menu == 2:
             pedir_ruta_fichero()
             ruta = leer_ruta()
             pedir_ruta_fichero_destino()
             ruta_destino = leer_ruta()
 
-        if ruta is None:
-            print('La ruta no es un fichero')
+
 
             
