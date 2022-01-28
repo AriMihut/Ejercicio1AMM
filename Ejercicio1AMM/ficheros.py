@@ -17,13 +17,13 @@ def leer_entero(texto):
 def pedir_ruta_fichero():
     print('Escriba la ruta del fichero: ')
 
-
+# aqui leo el string de la ruta
 def leer_ruta():
     return input()
 
 
-def mostrar_contenido_fichero():
-    print(f'La ruta es  + {ruta}')
+def mostrar_contenido_fichero(ruta):
+    print(f'La ruta es {ruta}')
 
 
 def pedir_ruta_fichero_destino():
